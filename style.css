@@ -1,0 +1,31 @@
+body {
+  font-family: sans-serif;
+}
+
+form {
+  margin: 0 auto;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+}
+
+button:hover {
+  background-color: #333;
+}
