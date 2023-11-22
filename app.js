@@ -8,7 +8,7 @@ const e = require("express");
 const app = express();
 
 // Define the port to listen on
-const port = 1200;
+const port = 1220;
 
 // Start the Express app and listen for requests on the specified port
 app.listen(port, () => console.log(`Listening on port ${port}`));
@@ -144,6 +144,7 @@ app.post("/additems", (req, res) => {
   res.end("data inserted...");
 });
 
+//to select all data from all tables
 app.get("/getData", (req, res) => {
   let getData = `SELECT p.*, c.*, d.*
   FROM products AS p
@@ -154,6 +155,27 @@ app.get("/getData", (req, res) => {
     if (err) {
       console.log("Error ", err);
     }
-    console.log("the rows data ", rows);
+    res.send(rows);
   });
 });
+
+//to select product name from products table
+//to select company name from company table
+//to select company description from description table
+app.get("/getEachData", (req, res) => {
+  let getEachData = `SELECT product_name, company_name, company_description
+FROM products
+LEFT JOIN company ON products.product_id = company.product_id
+LEFT JOIN description ON products.product_id = description.product_id`;
+
+  myConnection.query(getEachData, (err, rows, fields) => {
+    if (err) {
+      console.log("Error ", err);
+    }
+    res.send(rows);
+  });
+});
+
+
+//to update tables
+app.put("/update", )
