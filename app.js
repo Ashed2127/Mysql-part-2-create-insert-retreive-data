@@ -179,7 +179,7 @@ LEFT JOIN description ON products.product_id = description.product_id`;
 //to update tables
 // app.use(bodyParser.json());
 
-app.put("/updateName", (req, res) => {
+app.post("/updateName", (req, res) => {
   const { product_id, product_name } = req.body;
 
   let updateName = `UPDATE products SET product_name = '${product_name}' WHERE product_id = ${product_id}`;
@@ -190,7 +190,24 @@ app.put("/updateName", (req, res) => {
       res.status(500).send("Error updating product name");
       return;
     }
-
+    if (product_id) {
+      console.log("enter valid id");
+    }
     res.send("Product name updated successfully");
   });
 });
+
+// //to delete the product
+// app.post("/deleteName", (req, res) => {
+//   const { product_id } = req.body;
+
+//   let updateName = `DELETE FROM products JOIN company JOIN description WHERE product_id = ${product_id}`;
+
+//   myConnection.query(updateName, (err, rows) => {
+//     if (err) {
+//       console.log(err);
+//     }
+
+//     res.send("Product Deleted successfully");
+//   });
+// });
