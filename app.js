@@ -197,17 +197,17 @@ app.post("/updateName", (req, res) => {
   });
 });
 
-// //to delete the product
-// app.post("/deleteName", (req, res) => {
-//   const { product_id } = req.body;
+//to delete the product
+app.post("/deleteName", (req, res) => {
+  const { product_id } = req.body;
 
-//   let updateName = `DELETE FROM products JOIN company JOIN description WHERE product_id = ${product_id}`;
+  let updateName = `DELETE FROM products JOIN company JOIN description WHERE product_id = ${product_id}`;
 
-//   myConnection.query(updateName, (err, rows) => {
-//     if (err) {
-//       console.log(err);
-//     }
+  myConnection.query(updateName, (err, rows) => {
+    if (err) {
+      console.log(err);
+    }
 
-//     res.send("Product Deleted successfully");
-//   });
-// });
+    res.send("Product Deleted successfully");
+  });
+});
