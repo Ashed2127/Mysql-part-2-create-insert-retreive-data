@@ -176,6 +176,21 @@ LEFT JOIN description ON products.product_id = description.product_id`;
   });
 });
 
-
 //to update tables
-app.put("/update", )
+// app.use(bodyParser.json());
+
+app.put("/updateName", (req, res) => {
+  const { product_id, product_name } = req.body;
+
+  let updateName = `UPDATE products SET product_name = '${product_name}' WHERE product_id = ${product_id}`;
+
+  myConnection.query(updateName, (err, rows) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send("Error updating product name");
+      return;
+    }
+
+    res.send("Product name updated successfully");
+  });
+});
