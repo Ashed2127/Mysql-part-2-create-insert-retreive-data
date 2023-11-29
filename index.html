@@ -5,15 +5,33 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+      <h1>Submit Form</h1>
     <form action="http://localhost:1220/additems" method="post">
       <input type="number" name="product_id" placeholder="Product Id" />
       <input type="text" name="product_name" placeholder="Product Name" />
       <input type="text" name="company_name" placeholder="Company Name" />
       </input>
-
       <button type="submit">Submit</button>
     </form>
 
 
+     <h1>Delete Form</h1>
+    <form action="http://localhost:1220/deleteName" method="post">
+      <input type="number" name="product_id" placeholder="Product Id" />
+      <br />
+      <input type="text" name="product_name" placeholder="Product Name" />
+      <br />
+      <button type="submit" style="background-color: red">Delete</button>
+    </form>
+
+
+     <h1>Update Name Form</h1>
+    <form action="http://localhost:1220/updateName" method="post">
+      <input type="number" name="product_id" placeholder="Product Id" />
+      <br />
+      <input type="text" name="product_name" placeholder="Product Name" />
+      <br />
+      <button type="submit">Update</button>
+    </form>
   </body>
 </html>
