@@ -71,25 +71,12 @@ app.get("/createtable", (req, res) => {
 //To Add an items on the previos created tables from web form
 app.post("/additems", (req, res) => {
   console.log(req.body);
-  // res.send("its working...");
 
   //store the parsed items into variable from body object that store as json format
   const { product_id, product_name, company_name } = req.body;
   // console.table(req.body);
 
-  // //check if the product id is reserved
-  // let selectedId = `SELECT ${product_id} FROM products`;
-  // myConnection.query(selectedId, (err, results) => {
-  //   if (err) {
-  //     console.log(err);
-  //   }
-  // });
-  // if (selectedId === product_id) {
-  //   alert("Invalid! Product Id is Reserved");
-  // }
-  // else{
 
-  // }
 
   let addProducts = `INSERT INTO products (product_id, product_name) VALUES (?, ?)`;
 
