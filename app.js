@@ -153,20 +153,6 @@ app.post("/updateName", (req, res) => {
   });
 });
 
-// //to update product id using product name
-// let updateId = `UPDATE products SET product_name = ${product_name} WHERE product_id = ${product_id}`;
-// myConnection.query(updateId, (err, rows) => {
-//   if (err) {
-//     console.log(err);
-//     res.status(500).send("Error updating product name");
-//     return;
-//   }
-//   if (product_name) {
-//     console.log("enter valid name");
-//   }
-//   res.send("Product id updated successfully");
-// });
-
 // to delete the product
 app.post("/deleteName", (req, res) => {
   const { product_id } = req.body;
@@ -179,7 +165,7 @@ app.post("/deleteName", (req, res) => {
       console.log(err);
     }
   });
-
+//2nd the product query executed to db
   myConnection.query(deleteProduct, (err, rows) => {
     if (err) {
       console.log(err);
